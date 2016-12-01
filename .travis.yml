@@ -264,4 +264,4 @@ install:
 before_script:
   - if [ '$DB' = 'pgsql' ]; then sudo service postgresql stop; sudo service postgresql start $POSTGRESQL_VERSION; fi
 
-script: ./vendor/bin/phpunit --debug --configuration tests/travis/$DB.travis.xml
+script: ./vendor/bin/phpunit --debug --configuration tests/travis/mysqli.travis.xml
