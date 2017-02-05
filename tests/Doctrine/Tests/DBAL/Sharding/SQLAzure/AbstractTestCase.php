@@ -51,6 +51,8 @@ abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
         // Customers, Orders, OrderItems federation tables.
         // See http://cloud.dzone.com/articles/using-sql-azure-federations
         $this->sm = new SQLAzureShardManager($this->conn);
+
+        parent::setUp();
     }
 
     public function createShopSchema()
