@@ -21,7 +21,7 @@ abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
     protected function setUp()
     {
         if (!isset($GLOBALS['db_type']) || strpos($GLOBALS['db_type'], "sqlsrv") === false) {
-            $this->markTestSkipped("No driver or sqlserver driver specified, or no SQL Azure connection specified.");
+            $this->markTestSkipped('No driver or sqlserver driver specified.');
         }
 
         $params = array(
@@ -51,8 +51,6 @@ abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
         // Customers, Orders, OrderItems federation tables.
         // See http://cloud.dzone.com/articles/using-sql-azure-federations
         $this->sm = new SQLAzureShardManager($this->conn);
-
-        parent::setUp();
     }
 
     public function createShopSchema()
