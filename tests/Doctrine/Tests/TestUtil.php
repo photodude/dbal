@@ -92,6 +92,7 @@ class TestUtil
                 $realConn->close();
 
                 $tmpConn->getSchemaManager()->dropAndCreateDatabase($dbname);
+                var_dump($tmpConn->getSchemaManager()->listDatabases());
 
                 $tmpConn->close();
             } else {
