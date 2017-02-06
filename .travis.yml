@@ -7,19 +7,6 @@ cache:
         - vendor
         - $HOME/.composer/cache
 
-php:
-  - 7.0
-  - 7.1
-  - nightly
-
-env:
-  - DB=sqlite
-  - DB=mysql
-  - DB=mysqli
-  - DB=mariadb MARIADB_VERSION=10.0
-
-addons:
-
 matrix:
   fast_finish: true
   include:
