@@ -6,12 +6,12 @@ cache:
         - vendor
         - $HOME/.composer/cache
 
-php:
+#php:
   #- 7.0
   #- 7.1
   #- nightly
 
-env:
+#env:
   #- DB=sqlite
   #- DB=mysql
   #- DB=mysqli
@@ -19,7 +19,7 @@ env:
 matrix:
   fast_finish: true
   include:
-     - php: hhvm
+    - php: hhvm
       sudo: true
       dist: trusty
       group: edge # until the next Trusty update
