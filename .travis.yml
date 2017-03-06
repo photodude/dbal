@@ -119,7 +119,7 @@ before_install:
 
 install:
   - wget https://getcomposer.org/composer.phar
-  - php composer.phar install
-  - travis_retry composer install
+  - php composer.phar install --verbose
+  #- travis_retry composer install --verbose
 
 script: ./vendor/bin/phpunit --configuration tests/travis/$DB.travis.xml
