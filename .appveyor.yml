@@ -21,18 +21,22 @@ environment:
     driver: sqlsrv
     db_version: sql2008r2sp2
     php: 7.2
+    services: mssql2008r2sp2
   - db: mssql
     driver: sqlsrv
     db_version: sql2012sp1
     php: 7.2
+    services: mssql2012sp1
   - db: mssql
     driver: sqlsrv
     db_version: sql2017
     php: 7.2
+    services: mssql2017
   - db: mssql
     driver: pdo_sqlsrv
     db_version: sql2017
     php: 7.2
+    services: mssql2017
 
 init:
   - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
@@ -86,14 +90,6 @@ install:
     # install composer dependencies
     - appveyor-retry php composer.phar self-update
     - appveyor-retry php composer.phar install --no-progress --profile
-
-before_test:
-# Selectively start the services
-  - ps: >-
-      if ($env:db -eq "mssql") {
-        $instanceName = $env:db_version.ToUpper()
-        Start-Service "MSSQL`$$instanceName"
-      }
 
 test_script:
   - cd C:\projects\dbal
